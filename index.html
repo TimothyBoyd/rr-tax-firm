@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R&amp;R Tax Firm | Father &amp; Son Tax &amp; Accounting</title>
+<meta name="description" content="R&R Tax Firm — father and son tax preparation and accounting in San Diego. Individual and business returns, bookkeeping, and IRS help.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Pinyon+Script&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#18201C;
+    --ledger:#24473A;
+    --ledger-deep:#17302A;
+    --brass:#D2A957;
+    --sage:#E3EAE5;
+    --paper:#F7F8F6;
+    --muted:#55625B;
+    --serif:"Fraunces", Georgia, serif;
+    --script:"Pinyon Script", "Brush Script MT", cursive;
+    --sans:"Public Sans", system-ui, -apple-system, sans-serif;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:var(--ledger-deep);color:#fff}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+  .logo{font-family:var(--serif);font-weight:700;font-size:1.35rem;text-decoration:none;white-space:nowrap}
+  .logo span{font-family:var(--script);font-weight:400;font-size:1.9rem;margin-right:6px;color:var(--brass)}
+  .links{display:flex;gap:28px;list-style:none}
+  .links a{text-decoration:none;font-weight:500;opacity:.9}
+  .links a:hover{opacity:1;color:var(--brass)}
+  .contact-mini{display:flex;gap:20px;font-size:.92rem}
+  .contact-mini a{text-decoration:none;opacity:.85}
+  .contact-mini a:hover{opacity:1}
+  .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;padding:8px 12px;border-radius:6px;font:inherit;cursor:pointer}
+
+  /* Hero — drop your photo in as hero.jpg next to this file */
+  .hero{position:relative;color:#fff;min-height:86vh;display:flex;align-items:center;
+    background:
+      linear-gradient(180deg,rgba(23,48,42,.55) 0%,rgba(23,48,42,.82) 100%),
+      url("hero.jpg") center/cover no-repeat,
+      var(--ledger)}
+  .hero-inner{padding:96px 24px}
+  .monogram{font-family:var(--script);font-size:clamp(5rem,14vw,10rem);line-height:.9;color:var(--brass)}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.05;margin-top:-.15em}
+  .tagline{font-family:var(--serif);font-size:clamp(1.25rem,2.6vw,1.75rem);margin-top:18px;max-width:22ch}
+  .hero p.sub{margin-top:14px;font-size:1.1rem;opacity:.9;max-width:44ch}
+  .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .btn{display:inline-block;padding:15px 28px;font-weight:600;text-decoration:none;border-radius:4px;border:2px solid transparent;font-size:1rem;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--brass);color:var(--ink)}
+  .btn-primary:hover{background:#E0BB6C}
+  .btn-ghost{border-color:rgba(255,255,255,.75);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+  /* Sections */
+  section{padding:96px 0}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,2.75rem);line-height:1.15;margin-bottom:20px}
+  .lead{font-size:1.15rem;color:var(--muted);max-width:60ch}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
+  .about p{margin-bottom:16px;max-width:60ch}
+  .promise{border-left:3px solid var(--brass);padding:8px 0 8px 24px}
+  .promise li{list-style:none;padding:10px 0;border-bottom:1px solid #D5DDD8;font-weight:500}
+  .promise li:last-child{border-bottom:0}
+
+  /* Services — ledger rows */
+  .services{background:var(--sage)}
+  .ledger{margin-top:40px;border-top:2px solid var(--ledger)}
+  .row{display:grid;grid-template-columns:minmax(200px,1fr) 2fr;gap:32px;padding:26px 0;border-bottom:1px solid #B9C7BF}
+  .row h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--ledger)}
+  .row p{color:var(--muted);max-width:60ch}
+
+  /* Resources */
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:40px}
+  .res-grid h3{font-family:var(--serif);font-size:1.3rem;margin-bottom:14px}
+  .checklist li{list-style:none;padding:8px 0 8px 30px;position:relative}
+  .checklist li::before{content:"";position:absolute;left:0;top:14px;width:16px;height:16px;border:2px solid var(--ledger);border-radius:3px}
+  .linklist li{list-style:none;border-bottom:1px solid #D5DDD8}
+  .linklist a{display:block;padding:14px 0;text-decoration:none;font-weight:500;color:var(--ledger)}
+  .linklist a:hover{text-decoration:underline}
+  .linklist small{display:block;color:var(--muted);font-weight:400}
+
+  /* Contact */
+  .contact{background:var(--ledger-deep);color:#fff}
+  .contact .lead{color:rgba(255,255,255,.8)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;margin-top:40px}
+  .direct a{display:block;font-family:var(--serif);font-size:1.5rem;text-decoration:none;margin-bottom:10px;word-break:break-word}
+  .direct a:hover{color:var(--brass)}
+  .direct p{opacity:.8;margin-top:18px}
+  form{display:grid;gap:16px}
+  label{font-weight:500;font-size:.95rem;display:grid;gap:6px}
+  input,select,textarea{font:inherit;padding:12px 14px;border-radius:4px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.07);color:#fff}
+  select option{color:var(--ink)}
+  textarea{min-height:120px;resize:vertical}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-note{font-size:.88rem;opacity:.7}
+
+  footer{background:#10221D;color:rgba(255,255,255,.7);padding:28px 0;font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* Mobile */
+  @media (max-width:900px){
+    .contact-mini{display:none}
+    .menu-btn{display:block}
+    .links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--ledger-deep);padding:8px 24px 20px}
+    .links.open{display:flex}
+    .links a{display:block;padding:12px 0}
+    .about-grid,.res-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .row{grid-template-columns:1fr;gap:6px}
+    .form-row{grid-template-columns:1fr}
+    section{padding:72px 0}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span>R&amp;R</span>Tax Firm</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="contact-mini">
+      <a href="tel:+16193999100">619-399-9100</a>
+      <a href="mailto:rrfinancialtax@gmail.com">rrfinancialtax@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="monogram" aria-hidden="true">R&amp;R</div>
+      <h1>Tax Firm</h1>
+      <p class="tagline">Father &amp; son tax and accounting you can trust.</p>
+      <p class="sub">Get your taxes done right, fast, and stress-free.</p>
+      <div class="ctas">
+        <a href="#contact" class="btn btn-primary">Book appointment</a>
+        <a href="#services" class="btn btn-ghost">See our services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>A family business that treats you like family</h2>
+        <p>R&amp;R Tax Firm is run by a father and son who believe taxes shouldn't be confusing or stressful. When you work with us, you work directly with the people preparing your return — not a call center.</p>
+        <p>We take the time to understand your situation, find every deduction you're entitled to, and explain everything in plain language before you sign.</p>
+      </div>
+      <ul class="promise">
+        <li>You talk to the same people every year</li>
+        <li>Clear pricing before we start</li>
+        <li>Fast turnaround and e-filing</li>
+        <li>Year-round help, not just in April</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <p class="lead">From a simple W-2 return to a growing business, we handle the details.</p>
+      <div class="ledger">
+        <div class="row"><h3>Individual tax returns</h3><p>Federal and California returns for employees, families, retirees, and students. We check for every credit and deduction you qualify for.</p></div>
+        <div class="row"><h3>Self-employed &amp; gig work</h3><p>1099 income, rideshare, freelancers, and side businesses. We help you track expenses and plan quarterly estimated payments.</p></div>
+        <div class="row"><h3>Small business taxes</h3><p>Returns for sole proprietors, LLCs, partnerships, and S-corps, plus guidance on choosing the right business structure.</p></div>
+        <div class="row"><h3>Bookkeeping</h3><p>Monthly or quarterly bookkeeping so your records are clean, organized, and ready when tax season comes.</p></div>
+        <div class="row"><h3>IRS &amp; FTB letters</h3><p>Got a notice? Send it to us. We'll explain what it means and help you respond correctly and on time.</p></div>
+        <div class="row"><h3>Tax planning</h3><p>Big life change coming — a new job, home, baby, or business? Plan ahead so there are no surprises at filing time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources">
+    <div class="wrap">
+      <h2>Resources</h2>
+      <p class="lead">Get ready for your appointment and check on your refund.</p>
+      <div class="res-grid">
+        <div>
+          <h3>What to bring</h3>
+          <ul class="checklist">
+            <li>Photo ID and Social Security cards for everyone on the return</li>
+            <li>W-2s, 1099s, and any other income forms</li>
+            <li>Last year's tax return</li>
+            <li>Mortgage interest (1098) and property tax statements</li>
+            <li>Childcare, education, and medical expense receipts</li>
+            <li>Business income and expense records, if self-employed</li>
+            <li>Bank routing and account number for direct deposit</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Helpful links</h3>
+          <ul class="linklist">
+            <li><a href="https://www.irs.gov/refunds" target="_blank" rel="noopener">Where's my federal refund?<small>IRS refund tracker</small></a></li>
+            <li><a href="https://www.ftb.ca.gov/refund/index.asp" target="_blank" rel="noopener">Where's my California refund?<small>Franchise Tax Board</small></a></li>
+            <li><a href="https://www.irs.gov/payments" target="_blank" rel="noopener">Make an IRS payment<small>Pay online directly to the IRS</small></a></li>
+            <li><a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener">Get your IRS transcript<small>Past returns and account history</small></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Book an appointment</h2>
+      <p class="lead">Call, email, or send a request below and we'll get back to you to set a time.</p>
+      <div class="contact-grid">
+        <div class="direct">
+          <a href="tel:+16193999100">619-399-9100</a>
+          <a href="mailto:rrfinancialtax@gmail.com">rrfinancialtax@gmail.com</a>
+          <p>Serving San Diego and clients remotely.</p>
+        </div>
+        <form id="booking">
+          <div class="form-row">
+            <label>Name<input name="name" required autocomplete="name"></label>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+          </div>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>What do you need help with?
+            <select name="service">
+              <option>Individual tax return</option>
+              <option>Self-employed / gig work</option>
+              <option>Small business taxes</option>
+              <option>Bookkeeping</option>
+              <option>IRS or FTB letter</option>
+              <option>Tax planning</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>Message<textarea name="message" placeholder="Best days and times to reach you, or anything we should know"></textarea></label>
+          <button type="submit" class="btn btn-primary">Send request</button>
+          <p class="form-note">This opens your email app with your request filled in.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr"></span> R&amp;R Tax Firm</span>
+    <span>619-399-9100 &nbsp;|&nbsp; rrfinancialtax@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const btn = document.querySelector('.menu-btn');
+  const links = document.getElementById('nav-links');
+  btn.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); btn.setAttribute('aria-expanded', false);
+  }));
+
+  document.getElementById('booking').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const subject = `Appointment request: ${f.get('service')}`;
+    const body = `Name: ${f.get('name')}\nPhone: ${f.get('phone')}\nEmail: ${f.get('email')}\nService: ${f.get('service')}\n\n${f.get('message')}`;
+    window.location.href = `mailto:rrfinancialtax@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
